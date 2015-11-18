@@ -134,7 +134,7 @@ const Select = React.createClass({
 
 	focus () {
 		if (!this.refs.input) return;
-		React.findDOMNode(this.refs.input).focus();
+		this.refs.input.focus();
 	},
 
 	handleMouseDown (event) {

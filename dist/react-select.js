@@ -407,7 +407,7 @@ var Select = _react2['default'].createClass({
 
 	focus: function focus() {
 		if (!this.refs.input) return;
-		_react2['default'].findDOMNode(this.refs.input).focus();
+		this.refs.input.focus();
 	},
 
 	handleMouseDown: function handleMouseDown(event) {

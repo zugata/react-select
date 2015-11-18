@@ -640,7 +640,7 @@ var StatesField = _react2['default'].createClass({
 		});
 	},
 	focusStateSelect: function focusStateSelect() {
-		_react2['default'].findDOMNode(this.refs.stateSelect).focus();
+		this.refs.stateSelect.focus();
 	},
 	toggleCheckbox: function toggleCheckbox(e) {
 		var newState = {};
