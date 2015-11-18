@@ -134,7 +134,7 @@ const Select = React.createClass({
 
 	focus () {
 		if (!this.refs.input) return;
-		this.refs.input.focus();
+		React.findDOMNode(this.refs.input).focus();
 	},
 
 	handleMouseDown (event) {
@@ -206,7 +206,7 @@ const Select = React.createClass({
 	},
 
 	handleInputBlur (event) {
-		if (document.activeElement.isEqualNode(this.refs.menu)) {
+		if (document.activeElement.isEqualNode(React.findDOMNode(this.refs.menu))) {
 			return;
 		}
 		if (this.props.onBlur) {

@@ -571,7 +571,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (document.activeElement.isEqualNode(this.refs.menu)) {
+		if (document.activeElement.isEqualNode(_react2['default'].findDOMNode(this.refs.menu))) {
 			return;
 		}
 		if (this.props.onBlur) {

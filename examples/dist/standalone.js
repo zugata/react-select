@@ -408,7 +408,7 @@ var Select = _react2['default'].createClass({
 
 	focus: function focus() {
 		if (!this.refs.input) return;
-		this.refs.input.focus();
+		_react2['default'].findDOMNode(this.refs.input).focus();
 	},
 
 	handleMouseDown: function handleMouseDown(event) {
@@ -480,7 +480,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (document.activeElement.isEqualNode(this.refs.menu)) {
+		if (document.activeElement.isEqualNode(_react2['default'].findDOMNode(this.refs.menu))) {
 			return;
 		}
 		if (this.props.onBlur) {
