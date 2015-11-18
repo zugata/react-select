@@ -258,10 +258,6 @@ var _react = (typeof window !== "undefined" ? window['React'] : typeof global !=
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = (typeof window !== "undefined" ? window['ReactDOM'] : typeof global !== "undefined" ? global['ReactDOM'] : null);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _reactInputAutosize = (typeof window !== "undefined" ? window['AutosizeInput'] : typeof global !== "undefined" ? global['AutosizeInput'] : null);
 
 var _reactInputAutosize2 = _interopRequireDefault(_reactInputAutosize);
@@ -399,8 +395,8 @@ var Select = _react2['default'].createClass({
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
 			this._scrollToFocusedOptionOnUpdate = false;
-			var focusedDOM = _reactDom2['default'].findDOMNode(this.refs.focused);
-			var menuDOM = _reactDom2['default'].findDOMNode(this.refs.menu);
+			var focusedDOM = _react2['default'].findDOMNode(this.refs.focused);
+			var menuDOM = _react2['default'].findDOMNode(this.refs.menu);
 			var focusedRect = focusedDOM.getBoundingClientRect();
 			var menuRect = menuDOM.getBoundingClientRect();
 			if (focusedRect.bottom > menuRect.bottom || focusedRect.top < menuRect.top) {
@@ -411,7 +407,7 @@ var Select = _react2['default'].createClass({
 
 	focus: function focus() {
 		if (!this.refs.input) return;
-		this.refs.input.focus();
+		_react2['default'].findDOMNode(this.refs.input).focus();
 	},
 
 	handleMouseDown: function handleMouseDown(event) {
@@ -482,7 +478,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (document.activeElement.isEqualNode(this.refs.menu)) {
+		if (document.activeElement.isEqualNode(_react2['default'].findDOMNode(this.refs.menu)) {
 			return;
 		}
 		if (this.props.onBlur) {

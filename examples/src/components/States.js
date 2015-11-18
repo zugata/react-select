@@ -38,7 +38,7 @@ var StatesField = React.createClass({
 		});
 	},
 	focusStateSelect () {
-		this.refs.stateSelect.focus();
+		React.findDOMNode(this.refs.stateSelect).focus();
 	},
 	toggleCheckbox (e) {
 		let newState = {};
