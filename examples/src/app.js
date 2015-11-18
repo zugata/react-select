@@ -1,7 +1,6 @@
 /* eslint react/prop-types: 0 */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Select from 'react-select';
 
 import Contributors from './components/Contributors';
@@ -11,7 +10,7 @@ import Multiselect from './components/Multiselect';
 import NumericSelect from './components/NumericSelect';
 import States from './components/States';
 
-ReactDOM.render(
+React.render(
 	<div>
 		<States label="States" searchable />
 		<Multiselect label="Multiselect" />

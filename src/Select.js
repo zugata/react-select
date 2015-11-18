@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
 
@@ -123,8 +122,8 @@ const Select = React.createClass({
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
 			this._scrollToFocusedOptionOnUpdate = false;
-			var focusedDOM = ReactDOM.findDOMNode(this.refs.focused);
-			var menuDOM = ReactDOM.findDOMNode(this.refs.menu);
+			var focusedDOM = React.findDOMNode(this.refs.focused);
+			var menuDOM = React.findDOMNode(this.refs.menu);
 			var focusedRect = focusedDOM.getBoundingClientRect();
 			var menuRect = menuDOM.getBoundingClientRect();
 			if (focusedRect.bottom > menuRect.bottom || focusedRect.top < menuRect.top) {
