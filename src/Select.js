@@ -593,10 +593,17 @@ const Select = React.createClass({
 				);
 			});
 		} else {
-			let noop = () => {};
+			let hander = () => {
+				this.setState({
+					isOpen: false,
+					inputValue: '',
+					isPseudoFocused: this.state.isFocused,
+				});
+				this.props.onNoResultsClick && this.props.onNoResultsClick();
+			};
 			return (
 				<div className="Select-noresults"
-					onClick={this.props.onNoResultsClick || noop}>
+					onClick={handler}>
 					{this.props.noResultsText}
 				</div>
 			);
