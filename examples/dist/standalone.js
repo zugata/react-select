@@ -328,6 +328,7 @@ var Select = _react2['default'].createClass({
 		onFocus: _react2['default'].PropTypes.func, // onFocus handler: function (event) {}
 		onInputChange: _react2['default'].PropTypes.func, // onInputChange handler: function (inputValue) {}
 		onValueClick: _react2['default'].PropTypes.func, // onClick handler for value labels: function (value, event) {}
+		onNoResultsClick: _react2['default'].PropTypes.func, // onClick handler for no Results Text
 		onMenuScrollToBottom: _react2['default'].PropTypes.func, // fires when the menu is scrolled to the bottom; can be used to paginate options
 		optionComponent: _react2['default'].PropTypes.func, // option component to render in dropdown
 		optionRenderer: _react2['default'].PropTypes.func, // optionRenderer: function (option) {}
@@ -408,7 +409,7 @@ var Select = _react2['default'].createClass({
 
 	focus: function focus() {
 		if (!this.refs.input) return;
-		_react2['default'].findDOMNode(this.refs.input).focus();
+		this.refs.input.focus();
 	},
 
 	handleMouseDown: function handleMouseDown(event) {
@@ -893,9 +894,11 @@ var Select = _react2['default'].createClass({
 
 			if (typeof _ret === 'object') return _ret.v;
 		} else {
+			var noop = function noop() {};
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'Select-noresults' },
+				{ className: 'Select-noresults',
+					onClick: this.props.onNoResultsClick || noop },
 				this.props.noResultsText
 			);
 		}

@@ -54,6 +54,7 @@ const Select = React.createClass({
 		onFocus: React.PropTypes.func,              // onFocus handler: function (event) {}
 		onInputChange: React.PropTypes.func,        // onInputChange handler: function (inputValue) {}
 		onValueClick: React.PropTypes.func,         // onClick handler for value labels: function (value, event) {}
+		onNoResultsClick: React.PropTypes.func,     // onClick handler for no Results Text
 		onMenuScrollToBottom: React.PropTypes.func, // fires when the menu is scrolled to the bottom; can be used to paginate options
 		optionComponent: React.PropTypes.func,      // option component to render in dropdown
 		optionRenderer: React.PropTypes.func,       // optionRenderer: function (option) {}
@@ -592,8 +593,10 @@ const Select = React.createClass({
 				);
 			});
 		} else {
+			let noop = () => {};
 			return (
-				<div className="Select-noresults">
+				<div className="Select-noresults"
+					onClick={this.props.onNoResultsClick || noop}>
 					{this.props.noResultsText}
 				</div>
 			);
